@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Event bubble</title>
+</head>
+<body id="body">
+    <h1 class="">JS Event bubble</h1>
+    <div id="container">
+        <ul id="myList">
+            <li id="first">item-1</li>
+            <li>item-2</li>
+            <li>item-3</li>
+            <li>item-4</li>
+            <li>item-5</li>
+        </ul>
+    </div>
+
+    <script>
+        let first = document.getElementById("first");
+        first.addEventListener("click", function (event) {
+            first.style.color = "red";
+            // event.stopImmediatePropagation();
+            event.stopPropagation() ;  
+        });
+
+        let myList = document.getElementById("myList");
+        document.getElementById("myList").addEventListener("click", function (event) {
+            myList.style.fontSize = "35px";
+            
+            
+        })
+
+        document.getElementById("container")
+        .addEventListener("click", function () {
+            myList.style.color = "blue";
+  
+        })
+
+        
+
+    </script>    
+</body>
+</html>
